@@ -1,0 +1,61 @@
+{% extends 'recruiter_nav.html' %}
+{% block title %} Edit job  detail {% endblock %}
+
+{%block body%}
+
+
+<div class="container my-2">
+    <marquee  style="font-family: cursive; color:black;background-color: blueviolet" direction="">Edit Job Detail</marquee>
+
+    <form action="/edit_jobdetail/{{job.id}}" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-group">
+            <label for="recruiter"> Job title</label>
+            <input type="text" class="form-control" id="jobtitle" name="jobtitle" value="{{job.title}}">
+        </div>
+        <div class="form-group">
+            <label for="first_time"> Start Time</label>[{{job.start_time}}]
+            <input type="date" class="form-control" id="firsttime"last name="firsttime" value="Enter your start date">
+        </div>
+        <div class="form-group">
+            <label for="last_time"> End time</label>[{{job.last_time}}]
+            <input type="date" class="form-control" id="lasttime" name="lasttime" value="Enter your  end date">
+        </div>
+      
+        <div class="form-group">
+            <label for="salary">Salary(per month)</label>
+            <input type="text" class="form-control" id="salary" name="salary" value="{{job.salary}}">
+               
+        </div>
+        
+        <div class="form-group">
+            <label for="password2">company logo</label><br>
+        <img src="{{job.image.url}}" width="100px" height="100px">
+        <a href="/change_logo/{{job.id}}">Change company logo</a>
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience (In year)</label>
+            <input type="text" class="form-control" id="experience" name="experience" value="{{job.experience}}" >
+        </div>
+        <div class="form-group">
+            <label for="location"> Company Location</label>
+            <input type="text" class="form-control" id="location" name="location"  value="{{job.location}}">
+           
+        </div>
+        <div class="form-group">
+            <label for="skill">Skills</label>
+            <input type="text" class="form-control" id="skill" name="skill" value="{{job.skills}}" required
+            placeholder=" Enter your knowladge skill">
+        </div>
+        
+        <div class="form-group">
+            <label for="desc">How May We Help You?</label>
+            <textarea  type = "text" class="form-control" id="desc" name="desc" rows="3" value="{[job.desc]}"></textarea>
+          </div>
+
+        <button type="submit" class="btn btn-primary">submit</button>
+
+    </form>
+</div>
+
+{%endblock%}
+

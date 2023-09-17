@@ -1,0 +1,31 @@
+{% extends 'recruiter_nav.html' %}
+{% block title %}  change company  logo{% endblock %}
+
+{%block body%}
+
+
+<div class="container my-2">
+    <marquee  style="font-family: cursive; color:black;background-color: blueviolet" direction="">Edit company logo</marquee>
+
+    <form action="/change_logo/{{job.id}}" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-group">
+            <label for="recruiter"> Job title</label>
+            <input type="text" class="form-control" id="jobtitle"  readonly name="jobtitle" value="{{job.title}}" >
+        </div>
+       
+     
+        <div class="form-group">
+            <label for="password2">company logo</label><br>
+        <img src="{{job.image.url}}" width="100px" height="100px">
+        <input type="file" class="form-control" id="img" name="img" >
+
+        </div>
+        
+
+        <button type="submit" class="btn btn-primary">submit</button>
+
+    </form>
+</div>
+
+{%endblock%}
+

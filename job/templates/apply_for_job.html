@@ -1,0 +1,23 @@
+{% extends 'user_nav.html' %}
+{% block title %} Apply for job {%endblock %}
+
+{%block body%}
+<div class="container mt-2">
+<marquee  style="font-family: cursive; color:black;background-color: blueviolet" direction=""> Apply For Job </marquee>
+<div class="container shadow-lg py-2">
+
+<form  method="post" enctype="multipart/form-data">{% csrf_token %}
+    <div class="form-group">
+        <label for="resume"> Upload Resume</label>
+        <input type="file" class="form-control" id="resume"   name="resume" >
+    </div>
+  
+    <button type="submit" class="btn btn-primary">submit</button>
+
+</form>
+    
+</div>
+ 
+</div>
+{%endblock%}
+

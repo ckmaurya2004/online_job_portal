@@ -1,0 +1,60 @@
+{% extends 'recruiter_nav.html' %}
+{% block title %} Add JOb {% endblock %}
+
+{%block body%}
+
+
+<div class="container my-2">
+    <marquee  style="font-family: cursive; color:black;background-color: blueviolet" direction="">Add Job</marquee>
+
+    <form action="/add_job/" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-group">
+            <label for="recruiter"> Job title</label>
+            <input type="text" class="form-control" id="jobtitle" name="jobtitle" placeholder="Enter your jobtitle">
+        </div>
+        <div class="form-group">
+            <label for="first_time"> Start Time</label>
+            <input type="date" class="form-control" id="firsttime"last name="firsttime" placeholder="Enter your start date">
+        </div>
+        <div class="form-group">
+            <label for="last_time"> End time</label>
+            <input type="date" class="form-control" id="lasttime" name="lasttime" placeholder="Enter your  end date">
+        </div>
+      
+        <div class="form-group">
+            <label for="salary">Salary(per month)</label>
+            <input type="text" class="form-control" id="salary" name="salary">
+               
+        </div>
+        
+        <div class="form-group">
+            <label for="password2">company logo</label>
+            <input type="file" class="form-control" id="img" name="img" required>
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience (In year)</label>
+            <input type="text" class="form-control" id="experience" name="experience" >
+        </div>
+        <div class="form-group">
+            <label for="location"> Company Location</label>
+            <input type="text" class="form-control" id="location" name="location" required
+            placeholder=" Enter your location name">
+        </div>
+        <div class="form-group">
+            <label for="skill">Skills</label>
+            <input type="text" class="form-control" id="skill" name="skill" required
+            placeholder=" Enter your knowladge skill">
+        </div>
+        
+        <div class="form-group">
+            <label for="desc">How May We Help You?</label>
+            <textarea  type = "text" class="form-control" id="desc" name="desc" rows="3"></textarea>
+          </div>
+
+        <button type="submit" class="btn btn-primary">submit</button>
+
+    </form>
+</div>
+
+{%endblock%}
+

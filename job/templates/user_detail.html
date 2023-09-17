@@ -1,0 +1,42 @@
+{% extends 'user_nav.html' %}
+{% block title %} user detail{%endblock %}
+
+{%block body%}
+<div class="container mt-2">
+<marquee  style="font-family: cursive; color:black;background-color: blueviolet" direction=""> user  detail </marquee>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+    <h2>Image</h2>
+    <img src="{{job.image.url}}" width="200px" height="200px">
+</div>
+<div class="col-md-6">
+   
+    <h2>{{job.title}}</h2>
+    {{job.recruiter.company}}<a href="/user_latest_jobs"> (view all jobs)</a><br>
+    {{job.start_time}}<br>
+    {{job.last_time}}<br>
+    <b>salary: {{job.salary}}</b><br>
+   <a href="\apply_for_job/{{job.id}}" type="submit"  class="btn btn-primary">Apply To Job</a>
+</div>
+<div>
+<h3 > Overview</h3>
+<p>{{job.desc}}</p>
+<h3>Required Experience</h3>
+<p>{{job.experience}} year</p>
+<h3>Skills Required</h3>
+<p>{{job.skills}} </p>
+<h3>Start Date For Applying</h3>
+<p>{{job.start_time}} </p>
+<h3>Last Date For Applying</h3>
+<p>{{job.last_time}} </p>
+
+
+</div>
+</div>
+</div>
+  
+ 
+</div>
+{%endblock%}
+

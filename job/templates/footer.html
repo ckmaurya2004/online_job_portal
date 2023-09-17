@@ -1,0 +1,46 @@
+{% load static%}
+<style>
+    .info {
+        color: yellow;
+    }
+
+    .mt-3 {
+        color: white;
+    }
+</style>
+
+<div class="container my-2" style="background-color: black; width: 100%; height: 300px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mt-3">
+                <h3>Contact Information</h3>
+                <div class="info">
+                    <p>Name : kiran maurya</p>
+                    <p>Email : kiranmaurya@gmail.com</p>
+                    <p>Phone_no : +91 7317442324</p>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <h3>Online Placement</h3>
+                <div class="info">
+                    <p>Apply for job upskill and connect with other professionals . Open your account today . Connect
+                        with others from your industary on the world's biggst professional</p>
+                </div>
+            </div>
+            <div class="col-md-4 mt-3">
+                <h3>Newsletter</h3>
+                <form method = "post" class="form-inline">{% csrf_token %}
+                    <div class="info">
+                    <p>You want to extra information then send your email address </p>
+                    </div>
+                <div class="form-group my-4">
+                    <input type="email" class="form-control mx-2" id="email"  name="email" placeholder="Enter Your Email">
+                    <button type="submit" class="btn btn-success">Submit</button>
+
+                  </div>
+               </form>
+            </div>
+        </div>
+    </div>
+
+</div>

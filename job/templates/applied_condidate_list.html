@@ -1,0 +1,47 @@
+{% extends 'recruiter_nav.html' %}
+{% block title %} job list {%endblock %}
+
+{%block body%}
+<div class="container mt-2">
+  <marquee style="font-family: cursive; color:black;background-color: blueviolet" direction="">Condidate Applied
+  </marquee>
+
+  <table class="table table-striped table-dark mt-2 text-center" id="example">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Company</th>
+
+        <th scope="col">Title</th>
+        <th scope="col">Apply_Date</th>
+        <th scope="col">Resume</th>
+
+      </tr>
+    </thead>
+    {% for i in data %}
+    {% if  request.user.id == i.job.recruiter.user.id %}
+    <b style="text-align: center;">job posted by {{i.job.recruiter.user.username}}</b>
+    <tbody>
+      <tr>
+
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.student.user.username}} </td>
+        <td>{{i.student.user.email}}</td>
+        <td>{{i.student.phone}}</td>
+        <td>{{i.job.recruiter.company}}</td>
+        <td>{{i.job.title}}</td>
+        <td>{{i.applydate}}</td>
+        <td> <img src="{{i.resume.url}}" style="width: 50px; height: 50px; border-radius: 50%;"></td>
+
+      </tr>
+
+    </tbody>
+    {%endif%}
+    {%endfor%}
+  </table>
+
+</div>
+{%endblock%}

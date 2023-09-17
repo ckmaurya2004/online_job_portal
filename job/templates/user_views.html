@@ -1,0 +1,43 @@
+{% extends 'admin_nav.html' %}
+{% block title %} Welcome To user view {%endblock %}
+
+{%block body%}
+<div class="container mt-2">
+<marquee  style="font-family: cursive; color:black;background-color: blueviolet" direction=""> All User View</marquee>
+
+<table class="table table-striped table-dark mt-2" id="example">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First_name</th>
+        <th scope="col">Last_name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Email</th>
+        <th scope="col">Image</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    {% for i in alluser %}
+    <tbody>
+      <tr>
+
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.user.first_name}}</td>
+        <td>{{i.user.last_name}}</td>
+        <td>{{i.phone}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.user.email}}</td>
+        <td> <img src="{{i.image.url}}" style="width: 50px; height: 50px; border-radius: 50%;"></td>
+        <td><a href="/user_delete/{{i.user.id}}" class="btn btn-danger">Delete</a></td>
+
+      </tr>
+     
+    </tbody>
+    {%endfor%}
+  </table>
+ 
+</div>
+{%endblock%}
+

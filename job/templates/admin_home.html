@@ -1,0 +1,34 @@
+{% extends 'admin_nav.html' %}
+{% block title %} Welcome To admin home{% endblock %}
+
+
+{%block body%}
+
+<div class="container mt-4">
+    <div class="row">
+
+        <div class="col-md-6 k">
+            <b>Recruiter</b>
+            <div class="my-4">
+
+                <b>Total No Of Student :  {{recruiter}}</b> 
+            </div>
+            <a href = "/recruiter_login"  class="btn btn-primary" type="submit"> Go TO Recruiter </a>
+
+        </div>
+
+        <div class="col-md-6">
+            <b>Student</b>
+            <div class="my-4">
+                <b>Total No Of Recruiter : {{student}}</b>
+            </div>
+            <a href = "/user_login"  class="btn btn-primary" type="submit"> Go TO Student </a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+{%endblock%}

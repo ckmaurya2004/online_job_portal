@@ -1,0 +1,100 @@
+{% extends 'recruiter_nav.html' %}
+{% block title %} Welcome To user recruiter{% endblock %}
+
+{%block body%}
+
+
+
+<div class="container my-2 ">
+
+    <marquee style="font-family: cursive; color:black;background-color: blueviolet" direction=""> Recruiter Profile
+    </marquee>
+    <div class="row">
+        <div class="col-md-8">
+            <form action="/recruiter_home/" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="firstname"> FirstName</label>
+                        <input type="text" class="form-control" id="fname" name="fname"
+                            value="{{recruiter.user.first_name}}">
+                    </div>
+                    <div class="form-group mx-4">
+                        <label for="lastname"> LastName</label>
+                        <input type="text" class="form-control" id="lname" name="lname"
+                            value="{{recruiter.user.last_name}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group ">
+                        <label for="email">Email Id</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{recruiter.user.email}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required
+                            value="{{recruiter.phone}}">
+                    </div>
+                    <div class="form-group mx-4">
+                        <label for="company">company</label>
+                        <input type="text" class="form-control" id="com" name="com" required
+                            value="{{recruiter.company}}">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group">
+                        <label for="img">Image</label>
+                        <input type="file" class="form-control" id="logo" name="logo">
+                    </div>
+                </div>
+
+                <label>Gender</label>
+                <div class="row">
+                    {%if recruiter.gender == 'male' %}
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="feamle" value="female">
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
+                    {% else %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                        <label class="form-check-label" for="male">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="feamle" value="female" checked>
+                        <label class="form-check-label" for="female">
+                            Female
+                        </label>
+                    </div>
+                    {%endif%}
+                </div>
+                <button type="submit" class="btn btn-primary">submit</button>
+
+            </form>
+
+
+        </div>
+        <div class="col-md-4 text-center my-4">
+            <img src="{{recruiter.image.url}} " width="50%" height="150px">
+            <p>{{recruiter.user.username}}</p>
+        </div>
+    </div>
+
+
+    {%endblock%}
